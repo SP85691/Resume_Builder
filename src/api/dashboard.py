@@ -3,8 +3,8 @@ from flask_login import login_required, current_user
 
 dash = Blueprint('dashboard', __name__)
 
-@dash.route('/dashboard')
+@dash.route('/dashboard/<username>')
 @login_required
-def dashboard():
+def dashboard(username):
     user = current_user 
     return render_template('dashboard.html', user=user)

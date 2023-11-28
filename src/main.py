@@ -1,5 +1,5 @@
 from flask import Flask, Request, render_template, sessions, redirect
-from flask_login import login_required, LoginManager
+from flask_login import login_required, LoginManager, current_user
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
@@ -23,7 +23,6 @@ app.config.from_object(models.BaseModel.Config)
 generate_secret_key = lambda: secrets.token_hex(24)
 secret_key = generate_secret_key()
 app.config['SECRET_KEY'] = secret_key
-
 
 db = models.db
 
@@ -52,6 +51,7 @@ def admin_panel():
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    user = current_user
+    return render_template('index.html', user=user)
 
 

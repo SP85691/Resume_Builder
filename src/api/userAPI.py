@@ -28,7 +28,7 @@ def loginPost():
 
             result = Users.Login_User(email=email, password=password)
             if result == "Login successful":
-                    return redirect(url_for('dashboard.dashboard'))  # Redirect to the login page after successful signup
+                    return redirect(url_for('index'))  # Redirect to the login page after successful signup
             else:
                 return result
         
@@ -61,3 +61,9 @@ def signupPost():
         return f"Error: {str(e)}"
     
     return render_template('login.html')
+
+@userapi.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('index'))

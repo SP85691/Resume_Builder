@@ -1,0 +1,12 @@
+Flask
+Flask-Admin
+Flask-Login
+Flask-Migrate
+SQLAlchemy
+Flask-SQLAlchemy
+Flask-Bcrypt
+Flask-Jwt-Extended
+Flask-RESTful
+Flask-Cors
+requests
+pydantic

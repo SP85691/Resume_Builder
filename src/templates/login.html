@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <!-- Link with login.css stored in "static/CSS/login.css" using url_for -->
+    <link rel="stylesheet" href="{{url_for('static', filename=('CSS/login.css'))}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-    <h1>Login User</h1>
-    <!-- create a form -->
-    <form action="/login" method="post">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="Enter your email">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="Enter your password">
-        <input type="submit" value="Login">
+    <form action="/login" method="POST">
+    <div class="container">
+        <div class="form" id="login">
+          <h1 class="form__title">Welcome Back</h1>
+          <div class="form__input-group">
+            <input type="email" name="email" class="form__input" autofocus placeholder="Email" id="usernameInput">
+          </div>
+          <div class="form__input-group">
+            <input type="password" name="password" class="form__input" autofocus placeholder="Password" id="passwordInput">
+            <div class="padding"></div>
+            <a href="#"><button class="form__button" id="loginButton">Sign In</button></a>
+          </div>
+        </div>
+      </div>
+    </form>
+    <script src="{{url_for('static', filename=('JS/login.js'))}}"></script>
 </body>
 </html>

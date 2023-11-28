@@ -3,20 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Resiter</title>
+    <!-- Link with login.css stored in "static/CSS/login.css" using url_for -->
+    <link rel="stylesheet" href="{{url_for('static', filename=('CSS/login.css'))}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+<style>
+  .form__button:hover{
+    background-color: #a06f08;
+    color: white;
+    /* animation slower ease in */
+    animation: pulse 1s ease-in infinite;
+    border-radius: 10px;
+  }
+</style>
 <body>
-    <h1>Register User</h1>
-    <!-- create a Signup form -->
-    <form action="/signup" method="post">
-        <label for="username">Userame</label>
-        <input type="text" name="username" id="username" placeholder="Enter your Username">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" placeholder="Enter your name">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="Enter your email">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="Enter your password">
-        <input type="submit" value="Register">
+    <form action="/signup" method="POST">
+    <div class="container">
+        <div class="form" id="login">
+          <h1 class="form__title">Welcome to Auto<span style="color: #a06f08;">Resume</span></h1>
+          <div class="form__input-group">
+            <input type="text" name="name" class="form__input" autofocus required placeholder="Name" id="usernameInput">
+          </div>
+          <div class="form__input-group">
+            <input type="text" name="username" class="form__input" autofocus required placeholder="Username" id="usernameInput">
+          </div>
+          <div class="form__input-group">
+            <input type="email" name="email" class="form__input" autofocus required placeholder="Email" id="usernameInput">
+          </div>
+          <div class="form__input-group">
+            <input type="password" name="password" class="form__input" autofocus required placeholder="Password" id="passwordInput">
+            <div class="padding"></div>
+            <a href="#"><button class="form__button" id="loginButton">Sign In</button></a>
+          </div>
+        </div>
+      </div>
+    </form>
+    <script src="{{url_for('static', filename=('JS/login.js'))}}"></script>
 </body>
 </html>
